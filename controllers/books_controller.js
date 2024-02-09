@@ -49,7 +49,7 @@ books.get('/', (req, res) => {
     })
     .catch(err => {
       res.status(400).json({
-          message: "Error, could not find books!" 
+          message: 'Error, could not find books!'
       })
     })
 })
@@ -63,7 +63,7 @@ books.get('/:id', (req, res) => {
     })
     .catch(err => {
       res.status(400).json({
-          message: "Error, could not find book!"
+          message: 'Error, could not find book!'
       })
     })
 })
@@ -77,7 +77,7 @@ books.put('/:id', (req, res) => {
     })
     .catch(err => {
       res.status(400).json({
-          message: "Error, could not edit book!"
+          message: 'Error, could not edit book!'
       })
     })
 })
@@ -87,12 +87,12 @@ books.delete('/:id', (req, res) => {
   Book.findByIdAndDelete(req.params.id)
     .then(deletedBook => {
       res.status(200).json({
-          message: "Delete successful!"
+          message: 'Delete successful!'
       })
     })
     .catch(err => {
       res.status(400).json({
-          message: "Error, could not delete book!"
+          message: 'Error, could not delete book!'
       })
     })
 })
@@ -105,7 +105,7 @@ books.post('/', (req, res) => {
     })
     .catch(err => {
       res.status(400).json({
-          message: "Error, could not create book!"
+          message: 'Error, could not create book!'
       })
     })
 })
