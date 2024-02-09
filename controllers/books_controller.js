@@ -67,3 +67,48 @@ books.get('/:id', (req, res) => {
       })
     })
 })
+
+// UPDATE
+books.put('/:id', (req, res) => {
+  Book.findByIdAndUpdate(req.params.id, req.body)
+    .then(updatedBook => {
+      console.log(req.body)
+      res.status(200).json(updatedBook)
+    })
+    .catch(err => {
+      res.status(400).json({
+          message: "Error, could not edit book!"
+      })
+    })
+})
+
+// DELETE
+books.delete('/:id', (req, res) => {
+  Book.findByIdAndDelete(req.params.id)
+    .then(deletedBook => {
+      res.status(200).json({
+          message: "Delete successful!"
+      })
+    })
+    .catch(err => {
+      res.status(400).json({
+          message: "Error, could not delete book!"
+      })
+    })
+})
+
+// POST
+books.post('/', (req, res) => {
+  Book.create(req.body)
+    .then(createdBook => {
+      res.status(200).json(createdBook)
+    })
+    .catch(err => {
+      res.status(400).json({
+          message: "Error, could not create book!"
+      })
+    })
+})
+
+
+module.exports = books
