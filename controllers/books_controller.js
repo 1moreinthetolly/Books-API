@@ -97,7 +97,7 @@ books.delete('/:id', (req, res) => {
     })
 })
 
-// POST
+// CREATE
 books.post('/', (req, res) => {
   Book.create(req.body)
     .then(createdBook => {
